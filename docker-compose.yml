@@ -1,28 +1,28 @@
-version: '2'
+version: '3'
 services:
   server:
+    #network_mode: host
     ports:
       - "7272:7272"
+    container_name: server
     build:
       context: .
       dockerfile: resources/docker/server/Dockerfile
 
   zalenium:
+    #network_mode: host
     image: dosel/zalenium:latest
+    container_name: zalenium
     ports:
       - "4444:4444"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /tmp/videos:/home/seluser/videos
-    privileged: true
-    command: ["start",
-             "--desiredContainers", "1",
-             "--maxDockerSeleniumContainers", "1",
-             "--screenWidth", "1920",
-             "--screenHeight", "1080",
-             "--videoRecordingEnabled", "true"]
-  
+      - ./test/videos:/home/seluser/videos
+    command: ["start"]
+
   robot:
+    #network_mode: host
+    container_name: robot
     build:
       context: .
       dockerfile: resources/docker/robot/Dockerfile
@@ -30,11 +30,9 @@ services:
       - server
       - zalenium
     environment:
-      - SELENIUM_URL=http://localhost:4444
+      - SELENIUM_URL=http://zalenium:4444
       - ROBOT_ARGS
     volumes:
       - ./test/robot:/home/robot/test/robot
       - ./test/logs:/home/robot/test/logs
       - ./test/variables.py:/home/robot/test/variables.py
-    network_mode: host
-

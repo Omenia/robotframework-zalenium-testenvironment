@@ -2,7 +2,8 @@ FROM python:3.6
 
 WORKDIR /usr/src/app
 
-RUN groupadd -rf python && useradd -g python --create-home --shell /bin/bash python
+RUN groupadd -rf python
+RUN useradd -g python --create-home --shell /bin/bash python
 
 ADD src /usr/src/app
 
