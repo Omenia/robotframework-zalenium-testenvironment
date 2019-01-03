@@ -1,7 +1,6 @@
 version: '3'
 services:
   server:
-    #network_mode: host
     ports:
       - "7272:7272"
     container_name: server
@@ -10,7 +9,6 @@ services:
       dockerfile: resources/docker/server/Dockerfile
 
   zalenium:
-    #network_mode: host
     image: dosel/zalenium:latest
     container_name: zalenium
     ports:
@@ -21,7 +19,6 @@ services:
     command: ["start"]
 
   robot:
-    #network_mode: host
     container_name: robot
     build:
       context: .

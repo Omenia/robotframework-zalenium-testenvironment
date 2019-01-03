@@ -1,4 +1,4 @@
-# Demo project for Robot Framework testing with Zalenium
+# Boilerplate for Robot Framework testing with Zalenium
 
 ## Prerequisites
 
