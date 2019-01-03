@@ -31,4 +31,4 @@ docker-compose down
 ```
 ### Pass more configuration parameters for zalenium
 
-Zalenium is started with default parameters that include video recording. More parameters can be added to the start command in docker-compose. See https://opensource.zalando.com/zalenium/#docker for list of available parameters. 
+Zalenium is started with default parameters that include video recording. More parameters can be added to the start-command in docker-compose. See https://opensource.zalando.com/zalenium/#docker for list of available parameters. 
