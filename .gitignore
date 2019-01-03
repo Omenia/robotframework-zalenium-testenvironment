@@ -1,5 +1,7 @@
 *.pyc
 *.swp
 *.log
+*.DS_Store
 .cache/
 test/logs/*
+test/videos/*
