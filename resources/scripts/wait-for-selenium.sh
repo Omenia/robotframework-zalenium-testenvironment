@@ -1,7 +1,7 @@
 #!/bin/bash -ue
 
 url="${1}/wd/hub/status"
-output_match=\"ready\":true
+output_match="\"ready\": true"
 
 shift
 cmd="$@"

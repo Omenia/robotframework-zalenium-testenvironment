@@ -1,25 +1,25 @@
-version: '2'
+version: '3'
 services:
   server:
+    ports:
+      - "7272:7272"
+    container_name: server
     build:
       context: .
       dockerfile: resources/docker/server/Dockerfile
 
   zalenium:
-    image: dosel/zalenium:3
+    image: dosel/zalenium:latest
+    container_name: zalenium
     ports:
       - "4444:4444"
     volumes:
-      - /usr/bin/docker:/usr/bin/docker
       - /var/run/docker.sock:/var/run/docker.sock
-      - /tmp/videos:/home/seluser/videos
-    command: ["start",
-              "--screenWidth", "1920",
-              "--screenHeight", "1080",
-              "--chromeContainers", "0",
-              "--firefoxContainers", "0"]
+      - ./test/videos:/home/seluser/videos
+    command: ["start"]
 
   robot:
+    container_name: robot
     build:
       context: .
       dockerfile: resources/docker/robot/Dockerfile
