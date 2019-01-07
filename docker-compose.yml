@@ -16,7 +16,14 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./test/videos:/home/seluser/videos
-    command: ["start"]
+    command: >
+      start --screenWidth 1930 --screenHeight 1090
+            --timeZone "Europe/Helsinki"
+            --videoRecordingEnabled true
+            --sauceLabsEnabled false
+            --browserStackEnabled false
+            --testingBotEnabled false
+            --startTunnel false
 
   robot:
     container_name: robot
