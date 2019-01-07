@@ -12,6 +12,8 @@ ${SELENIUM_URL}
 ${SELENIUM_SPEED}
 ${SCREEN_WIDTH}
 ${SCREEN_HEIGHT}
+${PASSWORD}
+${LOGIN_NAME}
 
 *** Test cases ***
 
@@ -29,10 +31,10 @@ Open Login Page
   Set Window Size  ${SCREEN_WIDTH}  ${SCREEN_HEIGHT}
 
 Enter Username
-  Input Text  id=username_field  demo
+  Input Text  id=username_field  ${LOGIN_NAME}
 
 Enter Password
-  Input Password  id=password_field  mode
+  Input Password  id=password_field  ${PASSWORD}
 
 Click Login Button
   Click Button  id=login_button
