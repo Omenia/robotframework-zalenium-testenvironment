@@ -7,10 +7,14 @@ services:
     build:
       context: .
       dockerfile: resources/docker/server/Dockerfile
-
+  selenium:
+    image: elgalu/selenium
+  
   zalenium:
     image: dosel/zalenium:latest
     container_name: zalenium
+    depends_on:
+      - selenium
     ports:
       - "4444:4444"
     volumes:
