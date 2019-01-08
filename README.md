@@ -30,9 +30,9 @@ docker-compose down
 ```
 ## Usefull URLs
 
-View tests running in real time: http://localhost:4444/grid/admin/live
-Dashboard for saved videos: http://localhost:4444/dashboard/
-The Grid console http://localhost:4444/grid/console
+* View tests running in real time: http://localhost:4444/grid/admin/live
+* Dashboard for saved videos: http://localhost:4444/dashboard/
+* The Grid console http://localhost:4444/grid/console
 
 
 ### Pass more configuration parameters for zalenium
